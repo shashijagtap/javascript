@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Image_slide</title>
+    <script>
+        function changeimage()
+        {
+            var imgnode = document.getElementById("mying");
+            s = imgnode.src;    //var is not written. so this become global data type.
+            w = imgnode.width;  //s,w,h copied the original data to regain its original position.
+            h = imgnode.height;
+
+            imgnode.src = "img2.jpg";
+            imgnode.width = "300";
+            imgnode.height = "3s00";
+        }
+
+        function originalimg()
+        {
+            var inode = document.getElementById("mying");
+            inode.src = s;
+            inode.width = w;
+            inode.height = h;
+        }
+
+    </script>
+</head>
+<body>
+    <img src="img1.jpg" width="400" height="400" alt="image is not displYING" id="mying" onmouseover="changeimage()" onmouseout="originalimg()" />
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>table division</title>
+    <script>
+
+        function heading()
+        {
+
+            var str = "";
+            var rowlength = document.getElementsByTagName("tr");
+            for (i = 0; i < rowlength.length; i++)
+            {
+                var tddata = rowlength[i].getElementsByTagName("td");
+                str += "<h1>" + tddata[0].innerHTML + "</h1>";
+
+            }
+            document.getElementById("span1").innerHTML = str;
+        }
+
+        function img()
+        {
+            var str = "";
+            var rowlength = document.getElementsByTagName("tr");
+            for (i = 0; i < rowlength.length; i++) {
+
+                var tddata = rowlength[i].getElementsByTagName("td");
+                str += tddata[1].innerHTML;
+            }
+            document.getElementById("span2").innerHTML = str;
+        }
+
+        function cold()
+        {
+            var str = "";
+            var rowlength = document.getElementsByTagName("tr");
+            for (i = 0; i < rowlength.length; i++)
+            {
+                var tddata = rowlength[i].getElementsByTagName("td");
+                str += tddata[2].innerHTML;
+                
+            }
+            document.getElementById("span3").innerHTML = str;
+        }
+    </script>
+</head>
+<body>
+    <table border="1" style="border-collapse:collapse">
+        <tr>
+            <td> CRICKET</td>
+            <td><img src="img1.jpg" height="100" width="100" /></td>
+            <td>
+                cricket <br />
+                cricket <br />
+                cricket <br />
+                cricket <br />
+                cricket <br />
+            </td>
+        </tr>
+
+        <tr>
+            <td>FOOTBALL</td>
+            <td><img src="img2.jpg" height="100" width="100" /></td>
+            <td>
+                football<br />
+                football<br />
+                football<br />
+                football<br />
+                football<br />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Volleyball</td>
+            <td><img src="img3.jpg" height="100" width="100" /></td>
+            <td>
+                volleyball<br />
+                volleyball<br />
+                volleyball<br />
+                volleyball<br />
+                volleyball<br />
+            </td>
+        </tr>
+    </table>
+    <br /><br />
+    <button id="head" style="margin-left:300px;float:left" onclick="heading()">Heading</button>
+    <button id="img" style="margin-left:300px;float:left" onclick="img()">image</button>
+    <button id="bold" style="margin-left:300px;float:left" onclick="cold()">Bold</button>
+    <br /><br />
+
+    <span id="span1" style="margin-left:250px;float:left "></span>
+    <span id="span2" style="margin-left:250px;float:left"></span>
+    <span id="span3" style="margin-left:250px;float:left"></span>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>I Reg validation</title>
+    <script>
+
+        function validate()
+        {
+            var id = document.f1.uid.value;
+
+            var reg = /^[\w.-]{5,15}$/;
+            if (!reg.test(id))
+            {
+                alert("ID should be between 5-15 characters!!");
+                document.f1.uid.value = ""; // empties the text box.
+                document.f1.uid.focus(); // blink there.
+                return;
+            }
+
+            var pwd = document.f1.pwd.value;
+
+            var re = /^[\w.]{8,15}$/;
+
+            if(!re.test(pwd))
+            {
+                alert("Password should be between 8-15 characters!!");
+                document.f1.pwd.value = ""; // empties the text box.
+                document.f1.pwd.focus();    // blink there.
+                return;
+            }
+
+            alert("data getting submitted!!"); 
+            document.f1.submit();   //because we are not using submit button to submit data so we need to submit it explicitely.
+        }                           // we are using normal button there to submit data. so we written this explicitely.
+
+    </script>
+</head>
+<body>
+    <form name="f1">
+        <table border="1" style="border-collapse:collapse" >
+            <tr>
+                <td> <label for="username">UID : </label> </td>
+                <td><input type="text" name="uid" id="username"/> </td>
+            </tr>
+
+            <tr>
+                <td><label for="password">pwd :</label></td>
+                <td><input type="password" name="pwd" id="password" /></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" value="LOGIN" onclick="validate()"/></td>
+                <td><input type="reset" value="CLEAR" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

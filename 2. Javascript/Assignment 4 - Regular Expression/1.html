@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>I validation</title>
+    <script>
+
+        function validate()
+        {
+            var id = document.f1.uid.value;
+
+            if (id.length < 5 || id.length > 15 || id.length==0)
+            {
+                alert("ID should be between 5-15 characters!!");
+                document.f1.uid.value = ""; // empties the text box.
+                document.f1.uid.focus(); // blink there.
+                return;
+            }
+
+            var pwd = document.f1.pwd.value;
+
+            if(pwd.length<8 || pwd.length>15)
+            {
+                alert("Password should be between 8-15 characters!!");
+                document.f1.pwd.value = ""; // empties the text box.
+                document.f1.pwd.focus();    // blink there.
+                return;
+            }
+
+
+            alert("submitting!!");
+            document.f1.submit();
+
+        }
+
+    </script>
+</head>
+<body>
+    <form name="f1">
+        <table border="1" style="border-collapse:collapse" >
+            <tr>
+                <td> <label for="username">UID : </label> </td>
+                <td><input type="text" name="uid" id="username"/> </td>
+            </tr>
+
+            <tr>
+                <td><label for="password">pwd :</label></td>
+                <td><input type="password" name="pwd" id="password" /></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" value="LOGIN" onclick="validate()"/></td>
+                <td><input type="reset" value="CLEAR" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

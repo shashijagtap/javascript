@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> Stop Watch</title>
+
+    <script>
+
+        var hh = mm = ss = 0;
+        function start()
+        {
+            ss++;
+            if(ss==60)
+            {
+                mm++;
+                ss = 0;
+            }
+
+            if(mm==60)
+            {
+                hh++;
+                mm = 0;
+            }
+        
+            if (hh < 10)
+                hh = "0" + parseInt(hh);
+            if (mm < 10)
+                mm = "0" + parseInt(mm);
+            if (ss < 10)
+                ss = "0" + parseInt(ss);
+
+            var str = hh + " : " + mm + " : " + ss;
+            document.getElementById("result").innerHTML = str;
+            flag = setTimeout(function () { start(); }, 300);
+        }
+
+        function pause()
+        {
+            clearTimeout(flag);
+        }
+
+        function reset()
+        {
+            hh = mm = ss = 0;
+            clearTimeout(flag);
+
+            if (hh < 10)
+                hh = "0" + parseInt(hh);
+            if (mm < 10)
+                mm = "0" + parseInt(mm);
+            if (ss < 10)
+                ss = "0" + parseInt(ss);
+
+            var str = hh + " : " + mm + " : " + ss;
+            document.getElementById("result").innerHTML = str;
+        }
+    </script>
+
+    <style>
+
+        div {
+            background-color: aqua;
+            width:150px;
+            height:50px;
+            font-size:25px;
+            text-align:center;
+        }
+
+    </style>
+
+</head>
+<body>
+        <div id="result"> 00 : 00 : 00</div>
+        <br/><br/>
+        <input type="button" id="start" value="start" onclick="start()" />
+        <input type="button" id="pause" value="pause" onclick="pause()" />
+        <input type="button" id="reset" value="reset" onclick="reset()"/>
+
+    
+</body>
+</html>

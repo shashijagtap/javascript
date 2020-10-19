@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>DOM </title>
+
+    <script>
+
+        //DOM family relationship
+        function readdiv()
+        {
+            var divnode = document.getElementById("content");
+            var divchild = divnode.childNodes;
+            
+            var str = "<table border=1>";
+            for (i = 0; i < divchild.length; i++)
+            {
+                str += "<tr>";
+                if (divchild[i].nodeType == 1) //consider only element nodes
+                {
+                    if (divchild[i].firstChild != null) //to remove empty elements
+                    {
+                        str += "<td>" + divchild[i].nodeName + "</td>";
+                        str += "<td>" + divchild[i].firstChild.nodeValue + "</td>";
+                    }
+                }
+                str += "</tr>";
+            }
+            str += "</table>";
+            document.getElementById("result").innerHTML = str;
+        }
+
+        // using css selector
+        function paragraph()
+        {
+            var node = document.querySelectorAll("p");
+            var str = "<table border=1>";
+           
+            for (i = 0; i < node.length; i++) {
+                str += "<tr>";
+                    str += "<td>" + node[i].nodeName + "</td>";
+                    str += "<td>" + node[i].firstChild.nodeValue + "</td>";
+                str += "</tr>";
+            }
+            
+            str += "</table>";
+
+            document.getElementById("result").innerHTML = str;
+        }
+
+
+        // by using css selector
+        function changecolor() {
+            var node = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+            for (i = 0; i < node.length; i++)
+            {
+                node[i].style.backgroundColor = "pink";
+            }
+        }
+
+        // by using css selector
+
+        function textbackground()
+        {
+            var node = document.querySelectorAll("#t1,#t2,#t3");    // accessing by using id
+            for (i = 0; i < node.length; i++)
+                node[i].style.backgroundColor = "hotpink";
+        }
+
+    </script>
+</head>
+<body>
+    <div id="content">
+        <h1>All the aspects are the aspects of rational rights.</h1>
+        <h2>High on the march.</h2>
+        <p> Man is the product of his thoughts.</p>
+        <article> Stay Focused. Play Bold.</article>
+        <h3>BE Passsionate!!</h3>
+        <a>Do your work.</a> <br />
+        TEXT BOX 1<input type="text" id="t1" /><br />
+        TEXT BOX 2<input type="text" id="t2" /><br />
+        TEXT BOX 3<input type="text" id="t3" /><br />
+        <br />
+        <p>I am in paragraph!</p>
+        <button onclick="readdiv()">Get all child</button>
+        <button onclick="changecolor()">ChangeColor</button>
+        <button onclick="paragraph()">Paragraph table</button>
+        <button onclick="textbackground()">Text Box color</button>
+
+    </div>
+
+    <span id="result"></span>
+</body>
+</html>

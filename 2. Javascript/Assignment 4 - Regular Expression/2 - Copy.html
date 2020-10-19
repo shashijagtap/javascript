@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>II reg validation</title>
+
+    <script>
+        function validate()
+        {
+            
+            //email id validation
+            var emailid = document.form1.id.value;
+            //var emailid = document.getElementById("email").value;
+            var checkmail = /^\w{2,}@\w{3,}\.\w{2,}$/;
+           
+
+            if (!checkmail.test(emailid))
+            {
+                alert("Email id should not be in proper fromat !!");
+                document.form1.id.value = ""; // empties the text box.
+                document.form1.id.focus(); // blink there.
+                return;
+            }
+
+            //web for validation
+            var rad = document.getElementsByName("h1");
+            var flag = false;
+            
+            for(i=0;i<rad.length;i++)
+            {
+                if (rad[i].checked == true)
+                    flag = true;
+            }
+
+            if (flag == false)
+            {
+                alert("no checkbox for 'DO you use web for ?' selected!! ");
+                return;
+            }
+
+            //occupation validation
+            var occp = document.form1.occupation.value;
+            if (occp == "")
+            {
+                alert("Please select the occupation!!");
+                return;
+            }
+            
+           
+
+
+            //junk mail validation
+            var rad1 = document.getElementsByName("r1");
+
+            var flag1 = false;
+
+            for(i=0;i<rad1.length;i++)
+            {
+                if (rad1[i].checked == true)
+                    flag1 = true;
+            }
+
+            if (flag1==false)
+            {
+                alert("No Radio button is selected for 'Want us to send you junk email ?' ");
+                return;
+            }
+
+            document.form1.submit();    //needs to write because we are not using submit type of button to submit the information.
+        }
+    </script>
+
+</head>
+<body >
+        <div style="border:solid;border-width:initial;width:31%;background-color:cadetblue">
+            <p> Visitor Information </p>
+            <hr />
+            <form name="form1">
+                <table border="1" style="border-collapse:collapse">
+
+                    <tr>
+                        <td><label for=" email">Email Address: </label></td>
+                        <td><input type="email" name="id" id="email" /></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="h1;h2"> Do you use web for :</label> </td>
+                        <td>
+                            <input type="checkbox" name="h1" value="Research" /> Research
+                            <input type="checkbox" name="h1" value="Purchase" /> Purchase
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Occupation:</td>
+                        <td>
+                            <select name="occupation" id="occp">
+                                <option></option>
+                                <option>Student</option>
+                                <option>Working professional</option>
+                                <option>Educational Institute</option>
+                                <option>Corporate company</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Want us to send you junk email ?</td>
+                        <td>
+                            <input type="radio" name="r1" value="Absolutely" /> Absolutely
+                            <input type="radio" name=" r1" value=" No way,man" /> No way,man
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="button" value=" SUBMIT" style="float:right" onclick="validate()"/> <!--Button should be of button type and not that of submit type-->
+                        </td>
+                        <td><input type="reset" value="RESET" /></td>
+                    </tr>
+
+                </table>
+            </form>
+        </div>
+</body>
+</html>

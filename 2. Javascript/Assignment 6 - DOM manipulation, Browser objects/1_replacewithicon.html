@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Modify structure</title>
+    <script>
+
+        function modify()
+        {
+            var node = document.getElementsByTagName("li");
+
+            for (i = 0; i < node.length; i++)
+            {
+                var img1 = document.createElement("img");
+                img1.setAttribute("width", "200");
+                img1.setAttribute("height", "200");
+                img1.setAttribute("src", node[i].innerHTML + ".png");
+                alert(img1.getAttribute("src"));
+                node[i].innerHTML = "";
+                node[i].appendChild(img1);
+            }
+            
+        }
+
+    </script>
+</head>
+<body>
+    <ul id="list">
+        <li onclick=>Desktop</li>
+        <li>MyComputer</li>
+        <li>Folder</li>
+        <li>Browser</li>
+        <li>WordDocument</li>
+    </ul>
+    <button id="bt" onclick="modify()"> Button</button>
+</body>
+</html>

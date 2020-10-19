@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Digital clock</title>
+
+    <script>
+
+        function digitalclock()
+        {
+            var ctime = new Date();
+            var hh = ctime.getHours();
+            var mm = ctime.getMinutes();
+            var ss = ctime.getSeconds();
+
+            if (hh < 10)
+                hh = "0" + hh;
+            if (mm < 10)
+                mm = "0" + mm;
+            if (ss < 10)
+                ss = "0" + ss;
+
+
+            var str = hh + " : " + mm  + " : " + ss;
+
+            document.getElementById("digital").innerHTML = str;
+
+            flag = setTimeout(function () { digitalclock(); }, 1000);
+        }
+
+        function stoptime()
+        {
+            clearTimeout(flag);
+        }
+
+    </script>
+</head>
+<body onload="digitalclock()">
+
+    <span id="digital" style="float:right"> Clock space</span>
+
+    <br />
+    <hr />
+    <button type="button" onclick="stoptime()"> STOP CLOCK </button>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>slide show</title>
+    <script>
+        var imgarr = ["img1.jpg","img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg", "img7.jpg", "05.jpg"]  //if img1.jpg is not included,
+        var index = 0;  //then this img acts as dummy image in body and display img1.jpeg at the time of loading of page only.
+
+        function nextimg()
+        {
+            index++;
+            if (index == imgarr.length)
+                index = 0;
+            document.getElementById("imgid").src = imgarr[index];
+            setTimeout(function () { nextimg(); }, 1000);
+        }
+
+    </script>
+
+    <style>
+        div
+        {
+            text-align:center;
+        }
+    </style>
+</head>
+<body onload="nextimg()">
+    <div>
+        <br/> <br /><br /><br />
+        <img src="img1.jpg" width="500" height="500" id="imgid" style="text-align:center" />
+    </div>
+    <br /><br />
+</body>
+</html>

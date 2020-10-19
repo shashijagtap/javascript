@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Image_slide</title>
+    <script>
+    
+        function scrolling()
+        {
+            var imgnode = document.getElementById("mying");
+
+            if (parseInt(imgnode.style.left) > window.innerWidth)
+            {
+                imgnode.style.left = "20px";
+            }
+
+            imgnode.style.left = (parseInt(imgnode.style.left) + 20)+"px";  //written this "px" is important.
+            x = setTimeout(function () { scrolling(); }, 200);
+        }
+
+        function stopscroll()
+        {
+            clearTimeout(x);
+            var imgnode = document.getElementById("myimg");
+            imgnode.style.left = "20px";
+            imgnode.style.top = "20px";
+        }
+
+    </script>
+</head>
+<body>
+        <img src="img1.jpg" style="position:absolute;top:20px;left:20px" width="200" height="200" alt="image is not displaying" id="mying" onclick="scrolling()" onmouseover="stopscroll()" />
+        
+</body>
+</html>

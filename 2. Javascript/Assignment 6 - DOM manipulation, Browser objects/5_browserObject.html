@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Browser object</title>
+    <script>
+        function openwindow()
+        {
+            mywin = window.open("", "mywindow", "width=300,height=300");
+            var bt = document.getElementById("add");
+            bt.innerHTML = "Hide Window";
+        }
+
+        function changeSize() {
+            var h = prompt("Enter Height:");
+            var w = prompt("Enter Width");
+            mywin.resizeTo(h, w);
+        }
+
+        function changePosition() {
+            var x = prompt("Enter X co-ordinate:");
+            var y = prompt("Enter Y co-ordinate");
+            mywin.moveBy(x, y);
+        }
+        function writeWin() {
+            mywin.document.write("<h2>Hello From new Window</h2>");
+        }
+        function closeWin() {
+            if (confirm("Do you really want to close..?"))
+                mywin.close();
+        }
+    </script>
+</head>
+<body>
+    <button id="add" onclick="openwindow()">Show Window </button> <br /><br />
+    <button id="change" onclick="changeSize()">changeSize </button><br /><br />
+    <button onclick="changePosition()">Move  window</button> <br /><br />
+    <button onclick="writeWin()">write in new window</button> <br /><br />
+    <button onclick="closeWin()">Close New window</button> <br />
+</body>
+</html>

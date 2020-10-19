@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>background color</title>
+    <script>
+    function changeBg()
+    {
+        var x = event.srcElement;
+        document.body.style.backgroundColor = x.innerHTML;
+    }
+    </script>
+</head>
+<body bgcolor="pink">
+    <button onclick="changeBg()">Red</button>
+    <button onclick="changeBg()">Blue</button>
+    <button onclick="changeBg()">Green</button>
+</body>
+</html>

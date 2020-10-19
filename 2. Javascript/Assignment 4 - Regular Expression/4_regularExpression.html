@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>RegularExpression</title>
+</head>
+<body>
+    <script>
+        //For accepting first name
+
+        var name = /^[A-Z][a-z]{1,}$/;
+        var str = "Shashi";
+        alert(name.test(str)); //true
+        
+        //full name
+
+        var fname = /^\w{1,10}\s\w{1,10}$/;
+        var str1 = "Shashi jagtap";
+        alert(fname.test(str1));
+
+        //10 digit mobile number with +91-
+
+        var mob = /^\+91-\d{10}$/;
+       // var mobnum = "+91-9673323632";
+        var mobnum = prompt("Enter Mobile Number:");
+        alert(mob.test(mobnum)); 
+
+        //10 digit mobile number
+
+        var mob = /^-\d{10}$/;
+        // var mobnum = "+91-9673323632";
+        var mobnum = prompt("Enter Mobile Number:");
+        alert(mob.test(mobnum)); 
+
+        //email id Format:: _ _ _@_ _ _._ _ _
+
+        var email = /^[\w.-]{3,}@\w{1,}\.\w{1,5}$/;
+        //var id = prompt("Enter Email id: ");
+        var id = "shashikan.tj-agtap@gmail.com";
+        alert(email.test(id));
+
+
+        //email id Format:: _ _ _@_ _ _.com
+       
+       ar email = /^[\w.-]{3,}@\w{1,}\.com{1,5}$/;
+        //var id = prompt("Enter Email id: ");
+        var id = "shashikan.tj-agtap@gmail.com";
+        alert(email.test(id));
+
+        //accept course name.
+
+        var course = /^PG-[A-Z]{3,8}/
+        var str = "PG-DAC";
+        alert(course.test(str));
+
+    </script>
+</body>
+</html>

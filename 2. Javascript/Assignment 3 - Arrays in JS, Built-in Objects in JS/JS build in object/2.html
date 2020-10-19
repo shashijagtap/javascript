@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Date</title>
+    <script>
+
+        function disp(str)
+        {
+            var birthdate = new Date(str);
+            
+            var date = birthdate.getDate();
+            document.getElementById("date").innerHTML = date;
+
+            var mon = birthdate.getMonth();
+            document.getElementById("month").innerHTML = mon;
+
+
+            var year = birthdate.getFullYear();
+            document.getElementById("Year").innerHTML = year;
+
+            var day = birthdate.getDay();
+            document.getElementById("day").innerHTML = day;
+
+            var today = new Date();
+            var dt = today.getDate();
+            var mn = today.getMonth();
+            var yy = today.getFullYear();
+
+
+    
+
+            if (dt < date) 
+            {
+                mn--;
+                var d1=dt + 30;
+                var d = d1 - date;
+            }
+            else
+            {
+                var d = dt - date;
+            }
+
+            var y = yy - year;  //here the order matters. first do with date then year and then month.
+
+            if (mon > mn) {
+                y--;
+                var mo = mn + 12;
+                var m = mo - mon;
+            }
+            else {
+                var m = mn - mon;
+            }
+
+            document.getElementById("age").innerHTML = "You are " +y+" year " +m +" month " +d +" day old!"
+            
+        }
+
+    </script>
+</head>
+<body>
+    <form>
+        Enter Birth Date: <input type="date" id="bdate" />
+        <input type="button" value="operations" onclick="disp(bdate.value)" />
+    </form>
+    <br />
+    <br />
+    <p id="date">Date Display here...</p>
+    <p id="month">Month Display here...</p>
+    <p id="Year">Year Display here...</p>
+    <p id="day">Date Display here...</p>
+    <p id="age">Date Display here...</p>
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> Array</title>
+    <script>
+        function operation(num1,num2,num3,num4,num5)
+        {
+            n1 = parseInt(num1);
+            n2 = parseInt(num2);
+            n3 = parseInt(num3);
+            n4 = parseInt(num4);
+            n5 = parseInt(num5);
+
+            var arr = [n1, n2, n3, n4, n5];
+            document.getElementById("display").innerHTML = "Total Array:" +arr;
+
+            arr.sort(function (a, b) { return (b - a); });
+            document.getElementById("max").innerHTML = "Maximum Number in Array:" + arr[0];
+
+            arr.sort(function (a, b) { return (a - b); });
+            document.getElementById("min").innerHTML = "Minimum Number in Array:" + arr[0];
+
+            var sum = arr.reduce(function (a, b) { return a + b; })
+            document.getElementById("sum").innerHTML = "Sum of Number in Array:" + sum;
+
+            var sum1 = arr.reduce(function (a, b) { return a + b; })
+            var avg = sum1 / arr.length;
+            document.getElementById("average").innerHTML = "Avg of the array:" + avg;
+
+            var even = arr.every(function (a) {return a % 2 == 0;})
+            document.getElementById("even").innerHTML = "Does all numbers in the array are even ?:" + even;
+
+            var evennum = arr.filter(function (a) { if (a % 2 == 0) return true; })
+            document.getElementById("evennum").innerHTML = "Even Numbers in an array:" + evennum;
+
+            var odd = arr.every(function (a) { return a % 2 != 0; })
+            document.getElementById("odd").innerHTML = "Does all numbers in the array are odd ?:" + odd;
+
+            var oddnum = arr.filter(function (a) { if (a % 2 != 0) return true; })
+            document.getElementById("oddnum").innerHTML = "Odd Numbers in an array:" + oddnum;
+
+
+        }
+    </script>
+</head>
+<body>
+    <form>
+        Enter first element: <input type="number" name="num1" /> <br />
+        Enter second element:<input type="number" name="num2" /> <br />
+        Enter third element:<input type="number" name="num3" /> <br />
+        Enter fourth element:<input type="number" name="num4" /> <br />
+        Enter fifth element:<input type="number" name="num5" /> <br />
+        <input type="button" value="operations" onclick="operation(num1.value,num2.value,num3.value,num4.value,num5.value)" />
+    </form>
+    <br /><br />
+    <div id="display">Result shown here....!!</div>
+    <div id="max">Result shown here....!!</div>
+    <div id="min">Result shown here....!!</div>
+    <div id="sum">Result shown here....!!</div>  
+    <div id="average">Result shown here....!!</div>
+    <div id="even">Result shown here....!!</div>
+    <div id="evennum">Result shown here....!!</div>
+    <div id="odd">Result shown here....!!</div>
+    <div id="oddnum">Result shown here....!!</div>
+
+
+</body>
+</html>

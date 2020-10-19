@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>slide show</title>
+    <script>
+        var imgarr = ["img1.jpg","img2.jpg", "img3.jpg", "img4.jpg", "img5.jpg", "img6.jpg", "img7.jpg", "05.jpg"]  //if img1.jpg is not included,
+        var index = 0;  //then this img acts as dummy image in body and display img1.jpeg at the time of loading of page only.
+
+        function nextimg()
+        {
+            index++;
+            if (index == imgarr.length)
+                index = 0;
+            document.getElementById("imgid").src = imgarr[index];
+        }
+
+        function preimg() {
+            index--;
+            if (index == -1)
+                index = imgarr.length - 1;
+            document.getElementById("imgid").src = imgarr[index];
+        }
+    </script>
+</head>
+<body>
+    <img src="img1.jpg" width="400" height="400" id="imgid" />
+    <br /><br />
+    <!--Directly use button without this method input type="button".. because we are not using form here -->
+    <button onclick="nextimg()">Next</button>
+    <button onclick="preimg()">Previous</button>
+</body>
+</html>

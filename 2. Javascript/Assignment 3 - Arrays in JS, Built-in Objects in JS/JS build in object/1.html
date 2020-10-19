@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>string</title>
+    <script>
+        function length1(str)
+        {
+            var lent = str.length;
+            document.getElementById("len").innerHTML ="length:"+ lent;
+        }
+
+        function case1(str)
+        {
+            var str1 = str.toLowerCase();
+            var str2 = str.toUpperCase();
+            document.getElementById("len").innerHTML ="Lowercase:" +str1 + "<br> Uppercase:" + str2;
+        }
+
+        function search1(str)
+        {
+            var s1 = str.indexOf("w");
+
+            var s2 = str.lastIndexOf("w");
+            document.getElementById("len").innerHTML = "Index of W is from start:" + s1 +"<br/>Index of W is from last:" + s2;
+        }
+
+        function pos4(str)
+        {
+            p1 = str.charAt(4);
+            p2 = str.charCodeAt(4);
+            document.getElementById("len").innerHTML = "Character at index 4:" + p1 + "<br/>ASCII Code:" + p2;
+        }
+
+        function con(str1,str2)
+        {
+            var s = str1.concat(str2);
+
+            document.getElementById("len").innerHTML = "Concated String is:"+s;
+        }
+
+        function sp(str) {
+            var arr = str.split("");
+
+            document.getElementById("len").innerHTML = "Splited String is:" + arr;
+        }
+
+    </script>
+</head>
+<body>
+    <form>
+        Enter the String:
+        <input type="text" name="str" /> <br /> <br />
+        <input type="button" value="length" onclick="length1(str.value)" />
+        <input type="button" value="case" onclick="case1(str.value)" />
+        <input type="button" value="search for W" onclick="search1(str.value)" />
+        <input type="button" value="@ postion 4" onclick="pos4(str.value)" />
+        <input type="button" value="Spliting string" onclick="sp(str.value)" />
+    </form>
+    <br />
+    <br />
+    <div id="len" style="background-color:bisque;width:400px;height:50px">Result displayed here..</div>
+
+    <br />
+    <br />
+    <form>
+        Enter the String1:
+        <input type="text" name="str1" />
+
+        Enter the String2:
+        <input type="text" name="str2" /> <br /> <br />
+
+        <input type="button" value="Concat" onclick="con(str1.value,str2.value)" />
+
+    </form>
+</body>
+</html>
