@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>add</title>
+    <script>
+        function math(n1,n2)
+        {
+            var r;
+            r=+n1 + +n2;    //+ + is used to get this output.
+            document.getElementById("print").innerHTML = "Addition:" + r;
+
+            var r;
+            r = +n1 - +n2;    //+ + is used to get this output.
+            document.getElementById("print1").innerHTML = "Substraction:" + r;
+
+            var r;
+            r = +n1 * +n2;    //+ + is used to get this output.
+            document.getElementById("print2").innerHTML = "Multiphication:" + r;
+
+            var r;
+            r = +n1 / +n2;    //+ + is used to get this output.
+            document.getElementById("print3").innerHTML = "division:" + r;
+
+            var r;
+            r = +n1 % +n2;    //+ + is used to get this output.
+            document.getElementById("print4").innerHTML = "Division:" + r;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        Enter the number1 :
+        <input type="number" name="num1" /> <br />
+
+        Enter the number2 :
+        <input type="number" name="num2" /> <br />
+
+        <input type="button" id="check" value="Check" onclick="math(num1.value,num2.value)" />
+        <br />
+        <br />
+        <div id="print"></div> <br /> <br />
+
+        <div id="print1"></div> <br /> <br />
+
+        <div id="print2"></div> <br /> <br />
+
+        <div id="print3"></div> <br /> <br />
+
+        <div id="print4"></div> <br /> <br />
+
+    </form>
+</body>
+</html>

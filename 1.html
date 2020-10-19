@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title> factorial</title>
+    <script>
+        function calfact(n)
+        {
+            a = n;
+            var f = 1;
+            while(n>0)
+            {
+                f = f * n;
+                n--;
+            }
+            alert(f);
+            document.getElementById("fact").innerHTML = "factorial of " +a +" is "   + f;
+        }
+    </script>
+</head>
+<body>
+    <div style="background-color:burlywood;width:30%;border:">
+        <table style="background-color:orangered">
+            <form>
+                <tr>
+                    <td> Enter the number: </td>
+                    <td><input type="number" name="num" /></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="Factorial" onclick="calfact(num.value)" /> </td>
+                    <td></td>
+                </tr>
+            </form>
+        </table>
+        <br />
+        <span id="fact" style="margin-left:60px;"> output is here</span>
+        <br/>
+    </div>
+</body>
+</html>
